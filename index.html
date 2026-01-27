@@ -5,216 +5,286 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
   <title>Victoria Mehera — Investment Analyst | Global Macro | Equity Research</title>
-  <meta name="description" content="Victoria Mehera — Investment Analyst specializing in Global Macro, Equity Research, and Portfolio Management. Contact: meheravictoria@gmail.com" />
+  <meta name="description" content="Victoria Mehera — Investment Analyst focused on Global Macro, Equity Research, portfolio construction, capital allocation, and risk-aware investment strategy. Contact: meheravictoria@gmail.com" />
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://victoriamehera.github.io/" />
-
-  <!-- Basic SEO -->
   <meta name="robots" content="index,follow,max-image-preview:large" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Victoria Mehera — Investment Analyst | Global Macro | Equity Research" />
-  <meta property="og:description" content="Investment Analyst specializing in Global Macro, Equity Research, and Portfolio Management. Contact: meheravictoria@gmail.com" />
+  <meta property="og:description" content="Global macro and equity research with portfolio construction and capital allocation focus. Contact: meheravictoria@gmail.com" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://victoriamehera.github.io/" />
 
   <style>
     :root{
-      --navy:#0A2A66;     /* deep blue like US flag */
+      --navy:#0A2A66; /* deep blue like US flag */
       --black:#06070B;
       --white:#FFFFFF;
-      --muted:rgba(255,255,255,.78);
-      --line:rgba(255,255,255,.14);
-      --panel:rgba(255,255,255,.06);
-      --shadow:0 26px 70px rgba(0,0,0,.55);
-      --radius:22px;
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.74);
+      --line: rgba(255,255,255,.14);
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.10);
+      --shadow: 0 30px 80px rgba(0,0,0,.55);
+      --radius: 22px;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
+
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color: rgba(255,255,255,.92);
+      color:var(--text);
       background:
-        radial-gradient(1200px 900px at 18% 18%, rgba(10,42,102,.36), transparent 58%),
-        radial-gradient(900px 900px at 82% 24%, rgba(255,255,255,.10), transparent 60%),
-        radial-gradient(1100px 1100px at 50% 95%, rgba(10,42,102,.22), transparent 60%),
+        radial-gradient(1200px 900px at 20% 20%, rgba(10,42,102,.32), transparent 60%),
+        radial-gradient(900px 900px at 80% 30%, rgba(255,255,255,.10), transparent 60%),
+        radial-gradient(1000px 1000px at 50% 90%, rgba(10,42,102,.22), transparent 60%),
         var(--black);
-      overflow-x:hidden;
+      overflow:hidden;
     }
+
+    /* soft 3D-ish background orbs */
+    .orbs{
+      position:fixed; inset:0; pointer-events:none;
+      filter: saturate(1.18);
+    }
+    .orb{
+      position:absolute; width:520px; height:520px; border-radius:50%;
+      background: radial-gradient(circle at 30% 30%,
+        rgba(255,255,255,.20),
+        rgba(255,255,255,.06),
+        transparent 60%);
+      box-shadow: 0 0 140px rgba(10,42,102,.22);
+      transform: translate3d(0,0,0);
+      animation: float 12s ease-in-out infinite;
+      mix-blend-mode: screen;
+      opacity:.85;
+    }
+    .orb.one{left:-180px; top:-160px; animation-duration: 14s}
+    .orb.two{right:-240px; top:70px; width:640px; height:640px; animation-duration: 16s}
+    .orb.three{left:20%; bottom:-290px; width:760px; height:760px; animation-duration: 18s}
+
+    @keyframes float{
+      0%,100%{ transform: translate3d(0,0,0) scale(1) }
+      50%{ transform: translate3d(0,-18px,0) scale(1.03) }
+    }
+
     .wrap{
-      min-height:100%;
+      height:100%;
       display:grid;
       place-items:center;
       padding:28px;
     }
+
+    /* main 3D tilt card */
     .card{
       width:min(980px, 96vw);
-      border-radius:var(--radius);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
       border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      box-shadow:var(--shadow);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      overflow:hidden;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transform-style: preserve-3d;
+      perspective: 1200px;
       position:relative;
+      overflow:hidden;
+      will-change: transform;
     }
+
     .card::before{
       content:"";
       position:absolute; inset:-2px;
       background:
-        radial-gradient(780px 420px at 12% 10%, rgba(10,42,102,.26), transparent 60%),
-        radial-gradient(640px 360px at 86% 18%, rgba(255,255,255,.10), transparent 62%),
-        radial-gradient(720px 420px at 52% 110%, rgba(10,42,102,.20), transparent 65%);
+        radial-gradient(700px 340px at 18% 12%, rgba(10,42,102,.28), transparent 60%),
+        radial-gradient(560px 300px at 82% 18%, rgba(255,255,255,.10), transparent 62%),
+        radial-gradient(700px 360px at 55% 115%, rgba(10,42,102,.22), transparent 65%);
       pointer-events:none;
-      opacity:1;
+      opacity:.95;
     }
+
+    .grid{
+      position:absolute; inset:0; pointer-events:none;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 56px 56px;
+      opacity:.20;
+      mask-image: radial-gradient(520px 320px at 50% 35%, black 35%, transparent 75%);
+    }
+
     .inner{
       position:relative;
-      padding:44px 42px 38px;
+      padding: 46px 44px 40px;
       display:grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap:28px;
-    }
-    @media (max-width: 880px){
-      .inner{grid-template-columns:1fr; padding:34px 24px;}
+      grid-template-columns: 1.35fr .65fr;
+      gap: 30px;
     }
 
-    h1{
-      margin:0 0 10px;
+    @media (max-width: 860px){
+      body{overflow:auto}
+      .wrap{height:auto; min-height:100%}
+      .inner{ grid-template-columns:1fr; padding: 36px 26px; }
+    }
+
+    .name{
       font-size: clamp(34px, 4.2vw, 56px);
-      letter-spacing:-0.02em;
-      line-height:1.02;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin:0 0 12px;
+      transform: translateZ(30px);
+      text-shadow: 0 10px 40px rgba(0,0,0,.35);
     }
-    .headline{
+    .role{
       margin:0 0 18px;
-      color:var(--muted);
+      color: var(--muted);
       font-size: 15.5px;
-      line-height:1.5;
-    }
-    .summary{
-      margin:0 0 22px;
-      font-size:16.5px;
-      line-height:1.6;
-      color:rgba(255,255,255,.86);
-      max-width: 62ch;
+      line-height: 1.45;
+      transform: translateZ(22px);
     }
 
-    .pills{display:flex; flex-wrap:wrap; gap:10px; margin-top:8px;}
+    .tagline{
+      margin: 0 0 22px;
+      font-size: 16.5px;
+      line-height: 1.6;
+      color: rgba(255,255,255,.86);
+      max-width: 64ch;
+      transform: translateZ(18px);
+    }
+
+    .pills{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 6px;
+      transform: translateZ(18px);
+    }
     .pill{
       border:1px solid rgba(255,255,255,.16);
       background: rgba(255,255,255,.06);
-      padding:8px 10px;
-      border-radius:999px;
-      font-size:12.5px;
-      color: rgba(255,255,255,.86);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      color: rgba(255,255,255,.84);
+    }
+
+    .right{
+      transform: translateZ(16px);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      justify-content:space-between;
     }
 
     .panel{
       border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
       border-radius: 18px;
       padding: 14px 14px;
     }
     .panel h2{
       margin:0 0 10px;
-      font-size:12px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
       color: rgba(255,255,255,.72);
     }
 
-    .btn{
+    .links{display:flex; flex-direction:column; gap:10px;}
+
+    a.btn{
       display:flex; align-items:center; justify-content:space-between;
       gap:10px;
       text-decoration:none;
       color: rgba(255,255,255,.92);
       padding: 12px 12px;
       border-radius: 14px;
-      background: rgba(255,255,255,.06);
+      background: rgba(0,0,0,.14);
       border:1px solid rgba(255,255,255,.14);
-      transition: transform .16s ease, background .16s ease, border-color .16s ease;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      will-change: transform;
     }
-    .btn:hover{
+    a.btn:hover{
       transform: translateY(-1px);
       background: rgba(10,42,102,.18);
       border-color: rgba(255,255,255,.22);
     }
 
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
-    .small{font-size:12.5px; color: rgba(255,255,255,.68); line-height:1.55}
-    .footer{
-      margin-top: 12px;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      font-size:12px;
-      color: rgba(255,255,255,.56);
+    .hint{
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: rgba(255,255,255,.66);
+      line-height: 1.55;
     }
 
-    /* SEO helper: readable but unobtrusive section */
-    .seo{
-      margin-top: 18px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,.10);
-      color: rgba(255,255,255,.74);
-      font-size: 13.5px;
-      line-height: 1.65;
+    .footer{
+      display:flex; justify-content:space-between; align-items:center;
+      margin-top: 12px;
+      font-size: 12px;
+      color: rgba(255,255,255,.56);
+      gap:10px;
+      flex-wrap:wrap;
     }
-    .seo strong{color: rgba(255,255,255,.88)}
+
+    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .orb{animation:none}
+      .card{transform:none !important}
+      a.btn{transition:none}
+    }
   </style>
 </head>
 
 <body>
+  <div class="orbs" aria-hidden="true">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+  </div>
+
   <div class="wrap">
-    <main class="card">
+    <main class="card" id="card">
+      <div class="grid" aria-hidden="true"></div>
+
       <div class="inner">
         <section>
-          <h1>Victoria Mehera</h1>
-          <p class="headline">Investment Analyst | Global Macro | Equity Research</p>
+          <h1 class="name">Victoria Mehera</h1>
+          <p class="role">Investment Analyst | Global Macro | Equity Research</p>
 
-          <p class="summary">
-            I work at the intersection of <strong>global macro</strong> and <strong>fundamental equity research</strong>,
-            building investment views through business-cycle analysis, scenario modelling, and risk-aware portfolio construction.
+          <p class="tagline">
+            I work at the intersection of global macro and fundamental equity research,
+            with a focus on portfolio construction, capital allocation, and risk-aware investment strategy across public markets.
           </p>
 
-          <div class="pills" aria-label="Focus areas">
-            <span class="pill">Portfolio Management</span>
+          <div class="pills" aria-label="Key focus areas">
+            <span class="pill">Portfolio Construction</span>
+            <span class="pill">Capital Allocation</span>
             <span class="pill">Equity Research</span>
             <span class="pill">Global Macro</span>
             <span class="pill">Financial Modelling</span>
             <span class="pill">Risk & Scenarios</span>
           </div>
-
-          <!-- This section helps indexing without looking like an ad -->
-          <div class="seo">
-            <strong>Role keywords recruiters search:</strong>
-            Investment Analyst · Equity Research Analyst · Portfolio Manager · Buy-Side Analyst · Long/Short Equity · Global Macro Research · Asset Management.
-            <br/>
-            <strong>Markets:</strong> Europe (Amsterdam, London), Middle East (UAE), and global public markets.
-          </div>
         </section>
 
-        <aside>
+        <aside class="right">
           <div class="panel">
             <h2>Contact</h2>
-            <a class="btn" href="mailto:meheravictoria@gmail.com">
-              <span>Email</span>
-              <span class="mono">meheravictoria@gmail.com</span>
-            </a>
+            <div class="links">
+              <a class="btn" href="mailto:meheravictoria@gmail.com">
+                <span>Email</span>
+                <span class="mono">meheravictoria@gmail.com</span>
+              </a>
+            </div>
+            <div class="hint">Move your mouse — subtle 3D tilt.</div>
+          </div>
 
-            <!-- Optional: add when ready -->
-            <!--
-            <a class="btn" href="https://www.linkedin.com/in/your-handle/" target="_blank" rel="noreferrer">
-              <span>LinkedIn</span>
-              <span class="mono">/in/your-handle</span>
-            </a>
-            -->
-            <p class="small" style="margin:12px 2px 0;">
-              For opportunities in asset management, equity research, and global macro strategy.
-            </p>
+          <div class="panel">
+            <h2>Profile</h2>
+            <div class="hint">
+              Keywords: Investment Analyst · Equity Research · Portfolio Management · Portfolio Construction · Asset Allocation · Global Macro · Risk Management
+            </div>
 
             <div class="footer">
               <span>© <span id="y"></span> Victoria Mehera</span>
@@ -227,10 +297,31 @@
   </div>
 
   <script>
+    // 3D tilt (lightweight)
+    const card = document.getElementById("card");
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+
+    if (!prefersReduced) {
+      window.addEventListener("mousemove", (e) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width;
+        const y = (e.clientY - r.top) / r.height;
+        const rotY = clamp((x - 0.5) * 18, -10, 10);
+        const rotX = clamp((0.5 - y) * 16, -10, 10);
+        card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      });
+
+      window.addEventListener("mouseleave", () => {
+        card.style.transform = "rotateX(0deg) rotateY(0deg)";
+      });
+    }
+
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 
-  <!-- Structured data (very important for Google) -->
+  <!-- Structured data for Google -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -240,18 +331,17 @@
     "email":"meheravictoria@gmail.com",
     "jobTitle":"Investment Analyst",
     "knowsAbout":[
-      "Equity Research",
+      "Portfolio Construction",
+      "Capital Allocation",
+      "Asset Allocation",
       "Portfolio Management",
+      "Equity Research",
       "Global Macro",
-      "Business Cycle",
       "Financial Modelling",
       "Risk Management",
-      "Scenario Analysis"
-    ],
-    "worksFor":{
-      "@type":"Organization",
-      "name":"Independent / Open to opportunities"
-    }
+      "Scenario Analysis",
+      "Investment Strategy"
+    ]
   }
   </script>
 </body>
