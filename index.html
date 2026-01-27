@@ -234,7 +234,48 @@
       .card{transform:none !important}
       a.btn{transition:none}
     }
-  </style>
+   /* Mobile optimization */
+@media (max-width: 600px) {
+  body {
+    overflow: auto;
+  }
+
+  .card {
+    transform: none !important;
+    perspective: none;
+  }
+
+  .inner {
+    padding: 26px 20px;
+  }
+
+  .name {
+    font-size: 32px;
+  }
+
+  .tagline {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .pills {
+    gap: 8px;
+  }
+
+  .pill {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .right {
+    margin-top: 14px;
+  }
+
+  .orb {
+    display: none;
+  }
+}
+</style>
 </head>
 
 <body>
