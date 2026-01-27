@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 
   <title>Victoria Mehera — Investment Analyst | Global Macro | Equity Research</title>
-  <meta name="description" content="Victoria Mehera — Investment Analyst focused on Global Macro, Equity Research, portfolio construction, capital allocation, and risk-aware investment strategy. Contact: meheravictoria@gmail.com" />
+  <meta name="description" content="Victoria Mehera — Investment Analyst focused on Global Macro, Equity Research, Portfolio Construction, Capital Allocation, and risk-aware investment strategy. Contact: meheravictoria@gmail.com" />
 
   <link rel="canonical" href="https://victoriamehera.github.io/" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
@@ -18,16 +18,28 @@
 
   <style>
     :root{
-      --navy:#0A2A66; /* deep blue like US flag */
+      --navy:#0A2A66;
       --black:#06070B;
       --white:#FFFFFF;
+
       --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.74);
+      --muted: rgba(255,255,255,.72);
       --line: rgba(255,255,255,.14);
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.10);
-      --shadow: 0 30px 80px rgba(0,0,0,.55);
+
+      --glass1: rgba(255,255,255,.09);
+      --glass2: rgba(255,255,255,.045);
+
+      --shadow: 0 28px 78px rgba(0,0,0,.55);
       --radius: 22px;
+
+      --pad: 22px;
+      --pad-lg: 40px;
+
+      /* iOS safe areas */
+      --safe-left: env(safe-area-inset-left);
+      --safe-right: env(safe-area-inset-right);
+      --safe-top: env(safe-area-inset-top);
+      --safe-bottom: env(safe-area-inset-bottom);
     }
 
     *{box-sizing:border-box}
@@ -35,62 +47,56 @@
 
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
       background:
-        radial-gradient(1200px 900px at 20% 20%, rgba(10,42,102,.32), transparent 60%),
-        radial-gradient(900px 900px at 80% 30%, rgba(255,255,255,.10), transparent 60%),
-        radial-gradient(1000px 1000px at 50% 90%, rgba(10,42,102,.22), transparent 60%),
+        radial-gradient(1200px 900px at 18% 18%, rgba(10,42,102,.34), transparent 60%),
+        radial-gradient(900px 900px at 82% 26%, rgba(255,255,255,.10), transparent 62%),
+        radial-gradient(1000px 1000px at 52% 92%, rgba(10,42,102,.22), transparent 60%),
         var(--black);
+      min-height:100%;
       overflow:hidden;
     }
 
-    /* soft 3D-ish background orbs */
-    .orbs{
+    /* Luxury minimal background: subtle, not noisy */
+    .halo{
       position:fixed; inset:0; pointer-events:none;
-      filter: saturate(1.18);
+      opacity:.9;
+      filter:saturate(1.05);
     }
-    .orb{
-      position:absolute; width:520px; height:520px; border-radius:50%;
-      background: radial-gradient(circle at 30% 30%,
-        rgba(255,255,255,.20),
-        rgba(255,255,255,.06),
-        transparent 60%);
-      box-shadow: 0 0 140px rgba(10,42,102,.22);
-      transform: translate3d(0,0,0);
-      animation: float 12s ease-in-out infinite;
+    .halo::before{
+      content:"";
+      position:absolute; inset:-1px;
+      background:
+        radial-gradient(600px 420px at 20% 18%, rgba(255,255,255,.10), transparent 60%),
+        radial-gradient(900px 520px at 80% 22%, rgba(10,42,102,.22), transparent 65%),
+        radial-gradient(900px 650px at 52% 100%, rgba(255,255,255,.06), transparent 62%);
       mix-blend-mode: screen;
-      opacity:.85;
-    }
-    .orb.one{left:-180px; top:-160px; animation-duration: 14s}
-    .orb.two{right:-240px; top:70px; width:640px; height:640px; animation-duration: 16s}
-    .orb.three{left:20%; bottom:-290px; width:760px; height:760px; animation-duration: 18s}
-
-    @keyframes float{
-      0%,100%{ transform: translate3d(0,0,0) scale(1) }
-      50%{ transform: translate3d(0,-18px,0) scale(1.03) }
     }
 
     .wrap{
-      height:100%;
+      min-height:100%;
       display:grid;
       place-items:center;
-      padding:28px;
+      padding:
+        calc(22px + var(--safe-top))
+        calc(22px + var(--safe-right))
+        calc(22px + var(--safe-bottom))
+        calc(22px + var(--safe-left));
     }
 
-    /* main 3D tilt card */
     .card{
-      width:min(980px, 96vw);
+      width:min(920px, 100%);
       border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      background: linear-gradient(180deg, var(--glass1), var(--glass2));
       border:1px solid var(--line);
       box-shadow: var(--shadow);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      transform-style: preserve-3d;
-      perspective: 1200px;
       position:relative;
       overflow:hidden;
+
+      transform-style: preserve-3d;
       will-change: transform;
     }
 
@@ -98,11 +104,11 @@
       content:"";
       position:absolute; inset:-2px;
       background:
-        radial-gradient(700px 340px at 18% 12%, rgba(10,42,102,.28), transparent 60%),
-        radial-gradient(560px 300px at 82% 18%, rgba(255,255,255,.10), transparent 62%),
-        radial-gradient(700px 360px at 55% 115%, rgba(10,42,102,.22), transparent 65%);
+        radial-gradient(680px 340px at 16% 12%, rgba(10,42,102,.26), transparent 60%),
+        radial-gradient(520px 300px at 84% 16%, rgba(255,255,255,.10), transparent 62%),
+        radial-gradient(740px 420px at 55% 120%, rgba(10,42,102,.20), transparent 65%);
+      opacity:.92;
       pointer-events:none;
-      opacity:.95;
     }
 
     .grid{
@@ -110,66 +116,63 @@
       background-image:
         linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
-      background-size: 56px 56px;
-      opacity:.20;
+      background-size: 64px 64px;
+      opacity:.14;
       mask-image: radial-gradient(520px 320px at 50% 35%, black 35%, transparent 75%);
     }
 
     .inner{
       position:relative;
-      padding: 46px 44px 40px;
+      padding: 46px var(--pad-lg) 38px;
       display:grid;
       grid-template-columns: 1.35fr .65fr;
-      gap: 30px;
+      gap: 28px;
     }
 
-    @media (max-width: 860px){
-      body{overflow:auto}
-      .wrap{height:auto; min-height:100%}
-      .inner{ grid-template-columns:1fr; padding: 36px 26px; }
-    }
-
-    .name{
-      font-size: clamp(34px, 4.2vw, 56px);
-      line-height: 1.02;
-      letter-spacing: -0.02em;
-      margin:0 0 12px;
-      transform: translateZ(30px);
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(34px, 4.1vw, 56px);
+      line-height:1.02;
+      letter-spacing:-0.02em;
       text-shadow: 0 10px 40px rgba(0,0,0,.35);
+      transform: translateZ(22px);
     }
+
     .role{
       margin:0 0 18px;
       color: var(--muted);
       font-size: 15.5px;
-      line-height: 1.45;
-      transform: translateZ(22px);
+      line-height:1.5;
+      transform: translateZ(18px);
     }
 
     .tagline{
       margin: 0 0 22px;
-      font-size: 16.5px;
-      line-height: 1.6;
       color: rgba(255,255,255,.86);
-      max-width: 64ch;
-      transform: translateZ(18px);
+      font-size: 16.5px;
+      line-height: 1.65;
+      max-width: 62ch;
+      transform: translateZ(16px);
     }
 
-    .pills{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top: 6px;
-      transform: translateZ(18px);
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      transform: translateZ(14px);
     }
-    .pill{
+
+    .chip{
       border:1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.06);
-      padding: 8px 10px;
+      background: rgba(255,255,255,.05);
+      padding: 8px 11px;
       border-radius: 999px;
       font-size: 12.5px;
       color: rgba(255,255,255,.84);
     }
 
     .right{
-      transform: translateZ(16px);
+      transform: translateZ(14px);
       display:flex;
       flex-direction:column;
       gap:12px;
@@ -178,22 +181,29 @@
 
     .panel{
       border:1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.035));
       border-radius: 18px;
       padding: 14px 14px;
     }
+
     .panel h2{
       margin:0 0 10px;
-      font-size: 12px;
-      letter-spacing: .14em;
+      font-size: 11.5px;
+      letter-spacing: .16em;
       text-transform: uppercase;
       color: rgba(255,255,255,.72);
     }
 
-    .links{display:flex; flex-direction:column; gap:10px;}
+    .links{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
 
     a.btn{
-      display:flex; align-items:center; justify-content:space-between;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       gap:10px;
       text-decoration:none;
       color: rgba(255,255,255,.92);
@@ -210,15 +220,16 @@
       border-color: rgba(255,255,255,.22);
     }
 
-    .hint{
-      margin-top: 10px;
+    .small{
       font-size: 12.5px;
-      color: rgba(255,255,255,.66);
+      color: rgba(255,255,255,.70);
       line-height: 1.55;
     }
 
     .footer{
-      display:flex; justify-content:space-between; align-items:center;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
       margin-top: 12px;
       font-size: 12px;
       color: rgba(255,255,255,.56);
@@ -226,64 +237,55 @@
       flex-wrap:wrap;
     }
 
-    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      letter-spacing: .02em;
+    }
+
+    /* Tablet/Mobile layout */
+    @media (max-width: 860px){
+      body{overflow:auto}
+      .wrap{place-items:start center}
+      .inner{
+        grid-template-columns: 1fr;
+        padding: 34px var(--pad) 28px;
+      }
+    }
+
+    /* iPhone: strict equal gutters + no 3D */
+    @media (max-width: 600px){
+      .wrap{
+        padding:
+          calc(16px + var(--safe-top))
+          calc(16px + var(--safe-right))
+          calc(16px + var(--safe-bottom))
+          calc(16px + var(--safe-left));
+      }
+
+      .card{
+        width:100%;
+        max-width:100%;
+        margin:0 auto;
+        transform:none !important;
+      }
+
+      .grid{opacity:.10; background-size: 72px 72px;}
+
+      h1{font-size: 34px;}
+      .tagline{font-size: 15px; line-height: 1.6;}
+      .chip{font-size: 12px; padding: 7px 10px;}
+    }
 
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
-      .orb{animation:none}
       .card{transform:none !important}
       a.btn{transition:none}
     }
-   /* Mobile optimization */
-@media (max-width: 600px) {
-  body {
-    overflow: auto;
-  }
-
-  .card {
-    transform: none !important;
-    perspective: none;
-  }
-
-  .inner {
-    padding: 26px 20px;
-  }
-
-  .name {
-    font-size: 32px;
-  }
-
-  .tagline {
-    font-size: 15px;
-    line-height: 1.5;
-  }
-
-  .pills {
-    gap: 8px;
-  }
-
-  .pill {
-    font-size: 12px;
-    padding: 6px 10px;
-  }
-
-  .right {
-    margin-top: 14px;
-  }
-
-  .orb {
-    display: none;
-  }
-}
-</style>
+  </style>
 </head>
 
 <body>
-  <div class="orbs" aria-hidden="true">
-    <div class="orb one"></div>
-    <div class="orb two"></div>
-    <div class="orb three"></div>
-  </div>
+  <div class="halo" aria-hidden="true"></div>
 
   <div class="wrap">
     <main class="card" id="card">
@@ -291,7 +293,7 @@
 
       <div class="inner">
         <section>
-          <h1 class="name">Victoria Mehera</h1>
+          <h1>Victoria Mehera</h1>
           <p class="role">Investment Analyst | Global Macro | Equity Research</p>
 
           <p class="tagline">
@@ -299,13 +301,13 @@
             with a focus on portfolio construction, capital allocation, and risk-aware investment strategy across public markets.
           </p>
 
-          <div class="pills" aria-label="Key focus areas">
-            <span class="pill">Portfolio Construction</span>
-            <span class="pill">Capital Allocation</span>
-            <span class="pill">Equity Research</span>
-            <span class="pill">Global Macro</span>
-            <span class="pill">Financial Modelling</span>
-            <span class="pill">Risk & Scenarios</span>
+          <div class="chips" aria-label="Key focus areas">
+            <span class="chip">Portfolio Construction</span>
+            <span class="chip">Capital Allocation</span>
+            <span class="chip">Equity Research</span>
+            <span class="chip">Global Macro</span>
+            <span class="chip">Financial Modelling</span>
+            <span class="chip">Risk & Scenarios</span>
           </div>
         </section>
 
@@ -318,12 +320,11 @@
                 <span class="mono">meheravictoria@gmail.com</span>
               </a>
             </div>
-            <div class="hint">Move your mouse — subtle 3D tilt.</div>
           </div>
 
           <div class="panel">
             <h2>Profile</h2>
-            <div class="hint">
+            <div class="small">
               Keywords: Investment Analyst · Equity Research · Portfolio Management · Portfolio Construction · Asset Allocation · Global Macro · Risk Management
             </div>
 
@@ -338,22 +339,22 @@
   </div>
 
   <script>
-    // 3D tilt (lightweight)
+    // Subtle 3D tilt (desktop only; disabled on touch/mobile)
     const card = document.getElementById("card");
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isTouch = matchMedia("(hover: none), (pointer: coarse)").matches;
 
     function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
 
-    if (!prefersReduced) {
+    if (!prefersReduced && !isTouch) {
       window.addEventListener("mousemove", (e) => {
         const r = card.getBoundingClientRect();
         const x = (e.clientX - r.left) / r.width;
         const y = (e.clientY - r.top) / r.height;
-        const rotY = clamp((x - 0.5) * 18, -10, 10);
-        const rotX = clamp((0.5 - y) * 16, -10, 10);
+        const rotY = clamp((x - 0.5) * 16, -9, 9);
+        const rotX = clamp((0.5 - y) * 14, -8, 8);
         card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
       });
-
       window.addEventListener("mouseleave", () => {
         card.style.transform = "rotateX(0deg) rotateY(0deg)";
       });
