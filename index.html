@@ -1,4 +1,4 @@
-```html
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -273,7 +273,14 @@
       word-break:break-word;
       hyphens:auto;
     }
-  </style>
+  .email{
+  font-family: inherit;          /* без monospace */
+  letter-spacing: 0.02em;         
+  word-break: break-all;         /* перенос без дефисов */
+  overflow-wrap: anywhere;
+  hyphens: none;                 /* главное — убирает "-" */
+}
+</style>
 </head>
 
 <body>
@@ -309,7 +316,7 @@
             <div class="links">
               <a class="btn" href="mailto:meheravictoria@gmail.com">
                 <span>Email</span>
-                <span class="mono">meheravictoria@gmail.com</span>
+                <span class="email">meheravictoria@gmail.com</span>
               </a>
             </div>
           </div>
