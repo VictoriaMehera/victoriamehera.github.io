@@ -5,45 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Victoria Mehera</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #0b1220;
-      font-family: Arial, sans-serif;
-      color: white;
+      background: linear-gradient(135deg, #012169 0%, #00143d 55%, #000f2b 100%);
+      font-family: Arial, Helvetica, sans-serif;
+      color: #ffffff;
     }
 
     .card {
+      width: min(90%, 760px);
+      padding: 56px 32px;
       text-align: center;
-      padding: 40px 24px;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 20px;
-      background: rgba(255,255,255,0.03);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-      width: min(90%, 700px);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 28px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(6px);
     }
 
     h1 {
-      margin: 0 0 20px;
-      font-size: 56px;
+      margin: 0 0 22px;
+      font-size: clamp(42px, 7vw, 72px);
       font-weight: 700;
+      letter-spacing: -1px;
+      color: #ffffff;
     }
 
     .email {
-      font-size: 28px;
-      color: #dbeafe;
+      font-size: clamp(20px, 3vw, 30px);
+      font-weight: 400;
+      line-height: 1.5;
     }
 
     .email a {
-      color: inherit;
+      color: #ffffff;
       text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+      padding-bottom: 3px;
+      transition: 0.2s ease;
     }
 
     .email a:hover {
-      text-decoration: underline;
+      border-bottom-color: #ffffff;
+      opacity: 0.9;
     }
   </style>
 </head>
