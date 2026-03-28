@@ -1,391 +1,58 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-
-  <title>Victoria Mehera — Investment Analyst | Global Macro | Equity Research</title>
-  <meta name="description" content="Victoria Mehera — Investment Analyst focused on Global Macro, Equity Research, Portfolio Construction, Capital Allocation, and risk aware investment strategy. Contact: meheravictoria@gmail.com" />
-
-  <link rel="canonical" href="https://victoriamehera.github.io/" />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Victoria Mehera — Investment Analyst | Global Macro | Equity Research" />
-  <meta property="og:description" content="Global macro and equity research with portfolio construction and capital allocation focus. Contact: meheravictoria@gmail.com" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://victoriamehera.github.io/" />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Victoria Mehera</title>
   <style>
-    :root{
-      --navy:#0A2A66;
-      --black:#06070B;
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.72);
-      --line: rgba(255,255,255,.14);
-      --glass1: rgba(255,255,255,.085);
-      --glass2: rgba(255,255,255,.038);
-      --shadow: 0 28px 78px rgba(0,0,0,.55);
-      --radius: 22px;
-
-      --safe-left: env(safe-area-inset-left);
-      --safe-right: env(safe-area-inset-right);
-      --safe-top: env(safe-area-inset-top);
-      --safe-bottom: env(safe-area-inset-bottom);
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0b1220;
+      font-family: Arial, sans-serif;
+      color: white;
     }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background:
-        radial-gradient(1200px 900px at 18% 18%, rgba(10,42,102,.34), transparent 60%),
-        radial-gradient(900px 900px at 82% 26%, rgba(255,255,255,.10), transparent 62%),
-        radial-gradient(1000px 1000px at 52% 92%, rgba(10,42,102,.22), transparent 60%),
-        var(--black);
-      min-height:100%;
-      overflow:hidden;
+    .card {
+      text-align: center;
+      padding: 40px 24px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      width: min(90%, 700px);
     }
 
-    /* Luxury minimal halo */
-    .halo{
-      position:fixed; inset:0; pointer-events:none;
-      opacity:.9;
-      filter:saturate(1.05);
-    }
-    .halo::before{
-      content:"";
-      position:absolute; inset:-1px;
-      background:
-        radial-gradient(600px 420px at 20% 18%, rgba(255,255,255,.10), transparent 60%),
-        radial-gradient(900px 520px at 80% 22%, rgba(10,42,102,.22), transparent 65%),
-        radial-gradient(900px 650px at 52% 100%, rgba(255,255,255,.06), transparent 62%);
-      mix-blend-mode: screen;
-    }
-
-    /* Equal left/right padding on iPhone (safe-area symmetrically) */
-    .wrap{
-      min-height:100%;
-      display:grid;
-      place-items:center;
-      padding-top: calc(16px + var(--safe-top));
-      padding-bottom: calc(16px + var(--safe-bottom));
-      padding-left: calc(18px + var(--safe-left));
-      padding-right: calc(18px + var(--safe-right));
-    }
-
-    .card{
-      width:100%;
-      max-width: 920px;
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, var(--glass1), var(--glass2));
-      border: 1px solid rgba(255,255,255,.16);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      position:relative;
-      overflow:hidden;
-      transform-style: preserve-3d;
-      will-change: transform;
-    }
-
-    /* “Expensive” accent line */
-    .card::after{
-      content:"";
-      position:absolute; left:0; right:0; top:0; height:2px;
-      background: linear-gradient(90deg, transparent, rgba(10,42,102,.95), transparent);
-      opacity:.9;
-      pointer-events:none;
-    }
-
-    /* Inner highlight */
-    .card::before{
-      content:"";
-      position:absolute; inset:0;
-      border-radius: inherit;
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.18),
-        inset 0 0 0 1px rgba(255,255,255,.06);
-      pointer-events:none;
-    }
-
-    .grid{
-      position:absolute; inset:0; pointer-events:none;
-      background-image:
-        linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
-      background-size: 72px 72px;
-      opacity:.12;
-      mask-image: radial-gradient(520px 320px at 50% 35%, black 35%, transparent 75%);
-    }
-
-    .inner{
-      position:relative;
-      padding: 42px 34px 30px;
-      display:grid;
-      grid-template-columns: 1.35fr .65fr;
-      gap: 24px;
-    }
-
-    h1{
-      margin:0 0 10px;
-      font-size: clamp(34px, 4.1vw, 56px);
-      line-height:1.02;
-      letter-spacing:-0.025em;
-      text-shadow: 0 10px 40px rgba(0,0,0,.32);
-    }
-
-    .role{
-      margin:0 0 18px;
-      color: var(--muted);
-      font-size: 15.5px;
-      line-height: 1.45;
-      letter-spacing:.01em;
-    }
-
-    .tagline{
+    h1 {
       margin: 0 0 20px;
-      font-size: 16.5px;
-      line-height: 1.62;
-      color: rgba(255,255,255,.86);
-      max-width: 66ch;
+      font-size: 56px;
+      font-weight: 700;
     }
 
-    .pills{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top: 8px;
+    .email {
+      font-size: 28px;
+      color: #dbeafe;
     }
 
-    .pill{
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.06);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 12.5px;
-      color: rgba(255,255,255,.84);
+    .email a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .right{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      justify-content:space-between;
+    .email a:hover {
+      text-decoration: underline;
     }
-
-    .panel{
-      border:1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.035));
-      border-radius: 18px;
-      padding: 14px 14px;
-    }
-
-    .panel h2{
-      margin:0 0 10px;
-      font-size: 12px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.72);
-    }
-
-    .links{ display:flex; flex-direction:column; gap:10px; }
-
-    a.btn{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      text-decoration:none;
-      color: rgba(255,255,255,.92);
-      padding: 12px 12px;
-      border-radius: 14px;
-      background: rgba(0,0,0,.14);
-      border:1px solid rgba(255,255,255,.14);
-      transition: transform .18s ease, background .18s ease, border-color .18s ease;
-      will-change: transform;
-    }
-    a.btn:hover{
-      transform: translateY(-1px);
-      background: rgba(10,42,102,.18);
-      border-color: rgba(255,255,255,.22);
-    }
-
-    .hint{
-      margin-top: 10px;
-      font-size: 12.5px;
-      color: rgba(255,255,255,.66);
-      line-height: 1.55;
-    }
-
-    .footer{
-      display:flex; justify-content:space-between; align-items:center;
-      margin-top: 12px;
-      font-size: 12px;
-      color: rgba(255,255,255,.56);
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .mono{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      letter-spacing: .01em;
-    }
-
-    /* Desktop tilt only */
-    @media (hover:hover) and (pointer:fine){
-      .card{ perspective: 1200px; }
-    }
-
-    /* Responsive layout */
-    @media (max-width: 860px){
-      body{ overflow:auto; }
-      .wrap{ min-height:100%; place-items:start center; }
-      .inner{ grid-template-columns:1fr; padding: 34px 22px 24px; }
-    }
-
-    /* Mobile luxury: clean, no weird shifts */
-    @media (max-width: 600px){
-      body{ overflow:auto; }
-      .inner{ padding: 32px 22px 22px; }
-      .tagline{ font-size: 15.6px; line-height:1.55; }
-      .pill{ font-size: 12px; padding: 7px 10px; }
-    }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      .card{ transform:none !important; }
-      a.btn{ transition:none; }
-    }
-
-    /* === iPhone text overflow FIX (prevents “text drifting right”) === */
-    section, aside, .panel, .tagline, .role, .hint, .footer { min-width:0; }
-    .tagline, .hint{
-      overflow-wrap:anywhere;
-      word-break:break-word;
-      hyphens:auto;
-    }
-    a.btn{ min-width:0; flex-wrap:wrap; }
-    a.btn .mono, .footer .mono{
-      overflow-wrap:anywhere;
-      word-break:break-word;
-      hyphens:auto;
-    }
-  .email{
-  font-family: inherit;          /* без monospace */
-  letter-spacing: 0.02em;         
-  word-break: break-all;         /* перенос без дефисов */
-  overflow-wrap: anywhere;
-  hyphens: none;                 /* главное — убирает "-" */
-}
-</style>
+  </style>
 </head>
-
 <body>
-  <div class="halo" aria-hidden="true"></div>
-
-  <div class="wrap">
-    <main class="card" id="card">
-      <div class="grid" aria-hidden="true"></div>
-
-      <div class="inner">
-        <section>
-          <h1>Victoria Mehera</h1>
-          <p class="role">Investment Analyst | Global Macro | Equity Research</p>
-
-          <p class="tagline">
-            I work at the intersection of global macro and fundamental equity research,
-            with a focus on portfolio construction, capital allocation, and risk aware investment strategy across public markets.
-          </p>
-
-          <div class="pills" aria-label="Key focus areas">
-            <span class="pill">Portfolio Construction</span>
-            <span class="pill">Capital Allocation</span>
-            <span class="pill">Equity Research</span>
-            <span class="pill">Global Macro</span>
-            <span class="pill">Financial Modelling</span>
-            <span class="pill">Risk & Scenarios</span>
-          </div>
-        </section>
-
-        <aside class="right">
-          <div class="panel">
-            <h2>Contact</h2>
-            <div class="links">
-              <a class="btn" href="mailto:meheravictoria@gmail.com">
-                <span>Email:</span>
-                <span class="email">meheravictoria@gmail.com</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="panel">
-            <h2>Profile</h2>
-            <div class="hint">
-              Investment Analyst · Equity Research · Portfolio Management · Portfolio Construction · Asset Allocation · Global Macro · Risk Management
-            </div>
-
-            <div class="footer">
-              <span>© <span id="y"></span> Victoria Mehera</span>
-              <span class="mono">victoriamehera.github.io</span>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </main>
+  <div class="card">
+    <h1>Victoria Mehera</h1>
+    <div class="email">
+      <a href="mailto:meheravictoria@gmail.com">meheravictoria@gmail.com</a>
+    </div>
   </div>
-
-  <script>
-    // 3D tilt on desktop only
-    const card = document.getElementById("card");
-    const canHover = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
-
-    if (canHover && !prefersReduced) {
-      window.addEventListener("mousemove", (e) => {
-        const r = card.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width;
-        const y = (e.clientY - r.top) / r.height;
-        const rotY = clamp((x - 0.5) * 18, -10, 10);
-        const rotX = clamp((0.5 - y) * 16, -10, 10);
-        card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-      });
-
-      window.addEventListener("mouseleave", () => {
-        card.style.transform = "rotateX(0deg) rotateY(0deg)";
-      });
-    }
-
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
-
-  <!-- Structured data for Google -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Victoria Mehera",
-    "url":"https://victoriamehera.github.io/",
-    "email":"meheravictoria@gmail.com",
-    "jobTitle":"Investment Analyst",
-    "knowsAbout":[
-      "Portfolio Construction",
-      "Capital Allocation",
-      "Asset Allocation",
-      "Portfolio Management",
-      "Equity Research",
-      "Global Macro",
-      "Financial Modelling",
-      "Risk Management",
-      "Scenario Analysis",
-      "Investment Strategy"
-    ]
-  }
-  </script>
 </body>
 </html>
-```
